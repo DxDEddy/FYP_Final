@@ -1,0 +1,106 @@
+ * Starting ClamAV daemon clamd                                                                                                                                                                                                                                                                                                           LibClamAV Warning: **************************************************
+LibClamAV Warning: ***  The virus database is older than 7 days!  ***
+LibClamAV Warning: ***   Please update it as soon as possible.    ***
+LibClamAV Warning: **************************************************
+                                                                                                                                                                                                                                                                                                                                   [ OK ]
+
+---------------------------------------YARA---------------------------------------
+
+
++-------------------------------+-------------------------------------+
+| FILE                          | YARA RULE MATCH                     |
+|-------------------------------+-------------------------------------|
+| eDEX-UI-Windows-x64.exe       | []                                  |
+| PowerToysSetup-0.68.1-x64.exe | []                                  |
+| yaraproc.txt                  | [yaraBasicTestCase, yaraBinaryProc] |
+| eDEX-UI-Linux-x86_64.AppImage | []                                  |
+| ls                            | []                                  |
+| visudo                        | []                                  |
+| eicarcom2.zip                 | [yaraEICARStringDetection]          |
+| grep                          | []                                  |
+| bash                          | []                                  |
+| nano                          | []                                  |
+| vi                            | []                                  |
++-------------------------------+-------------------------------------+
+
+
+---------------------------------------CLAM---------------------------------------
+
+
++-------------------------------+----------------------+
+| FILE                          | SIGNATURE MATCH      |
+|-------------------------------+----------------------|
+| eDEX-UI-Windows-x64.exe       | None                 |
+| PowerToysSetup-0.68.1-x64.exe | None                 |
+| yaraproc.txt                  | None                 |
+| eDEX-UI-Linux-x86_64.AppImage | None                 |
+| ls                            | None                 |
+| visudo                        | None                 |
+| eicarcom2.zip                 | Win.Test.EICAR_HDB-1 |
+| grep                          | None                 |
+| bash                          | None                 |
+| nano                          | None                 |
+| vi                            | None                 |
++-------------------------------+----------------------+
+
+
+--Classification of executable files in the scan directory using machine learning--
+
+
+Training Dataset rows and columns: (1267, 349)
+Test Dataset rows and columns: (435, 349)
+Validation Dataset rows and columns: (109, 349)
+
+
+Custom training data found - Continuing with 1104 files in custom dataset
+
+
++--------------------------------------+---------+
+| FILE                                 |   CLASS |
+|--------------------------------------+---------|
+| CUSTOM_gedit                         |       5 |
+| CUSTOM_ls                            |       5 |
+| CUSTOM_grep                          |       5 |
+| CUSTOM_edex                          |       5 |
+| CUSTOM_nano                          |       5 |
+| CUSTOM_vi                            |       5 |
+| CUSTOM_vim                           |       5 |
+| CUSTOM_bash                          |       5 |
+| CUSTOM_visudo                        |       5 |
+| CUSTOM_eDEX-UI-Linux-x86_64.AppImage |       5 |
+| CUSTOM_eDEX-UI-Windows-x64.exe       |       5 |
+| CUSTOM_PowerToysSetup-0.68.1-x64.exe |       5 |
++--------------------------------------+---------+
+
+
+Metrics using the base dataset to gauge accuracy: 
+
+linear Kernel Type - Training Dataset - Accuracy vs Labels: 0.9960536700868192
+poly Kernel Type - Training Dataset - Accuracy vs Labels: 0.2138910812943962
+rbf Kernel Type - Training Dataset - Accuracy vs Labels: 0.4451460142067877
+sigmoid Kernel Type - Training Dataset - Accuracy vs Labels: 0.22888713496448304
+
+
+Performance evaluation of the train, validation and test sets:
+
+Linear SVM Model - Training Dataset - Accuracy vs Labels: 100% - Raw value: 0.9960536700868192
+Linear SVM Model - Validation Dataset - Accuracy vs Labels: 94% - Raw value: 0.944954128440367
+Linear SVM Model - Testing Dataset - Accuracy vs Labels: 93% - Raw value: 0.9287356321839081
+
+
+Classification report for the model predicting using the test dataset split: 
+              precision    recall  f1-score   support
+
+           1       0.85      0.80      0.82        50
+           2       0.90      0.98      0.94        58
+           3       1.00      0.99      0.99        72
+           4       0.98      0.95      0.96        56
+           5       0.60      0.75      0.67         8
+           6       0.78      0.74      0.76        19
+           7       0.98      0.98      0.98        58
+           8       0.93      0.88      0.90        59
+           9       0.93      0.98      0.96        55
+
+    accuracy                           0.93       435
+   macro avg       0.88      0.89      0.89       435
+weighted avg       0.93      0.93      0.93       435
